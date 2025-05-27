@@ -1,0 +1,46 @@
+.ExpenseItem {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  padding: 15px 0px;
+  border-bottom: 1px solid rgb(236, 236, 236);
+}
+.ExpenseItem .img_section {
+  min-width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  border-radius: 16%;
+  cursor: pointer;
+}
+
+.ExpenseItem .img_section > img {
+  width: 80%;
+  padding: 12px;
+}
+
+.ExpenseItem .img_section_1 {
+  background-color: rgb(100, 201, 100);
+}
+
+.ExpenseItem .info_section {
+  flex: 1;
+  cursor: pointer;
+}
+
+.ExpenseItem .info_section .storename {
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 8px;
+}
+
+.ExpenseItem .info_section .date {
+  font-size: 18px;
+}
+.ExpenseItem .amount_section {
+  font-size: 24px;
+}
+.ExpenseItem .buuton_section {
+  margin-top: 30px;
+  min-width: 70px;
+}

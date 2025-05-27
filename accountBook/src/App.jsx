@@ -18,15 +18,22 @@ const mockData = [
   {
     id: 1,
     storeName: "컴포즈 커피 관악신사교차로점",
-    createDate: new Date().getTime(),
+    createDate: new Date("2025-05-22").getTime(),
     amount: 3000,
     iconId: 1,
   },
   {
     id: 2,
     storeName: "한신우동 고덕로데오점",
-    createDate: new Date().getTime(),
+    createDate: new Date("2025-05-10").getTime(),
     amount: 10000,
+    iconId: 3,
+  },
+  {
+    id: 4,
+    storeName: "헤어살롱",
+    createDate: new Date("2025-04-05").getTime(),
+    amount: 50000,
     iconId: 3,
   },
 ];
@@ -36,16 +43,16 @@ function reducer(state, action) {
       return [action.data, ...state];
     case "UPDATE":
       return state.map((item) =>
-        item.id === action.data.id ? action.data : item
+        String(item.id) === String(action.data.id) ? action.data : item
       );
     case "DELETE":
-      return state.filter((item) => item.id !== action.id);
+      return state.filter((item) => item.id != action.id);
     default:
       return state;
   }
 }
-const SpendingStateContext = createContext();
-const SpendingDispatchContext = createContext();
+export const ExpenseStateContext = createContext();
+export const ExpenseDispatchContext = createContext();
 
 function App() {
   // const nav = useNavigate();
@@ -92,51 +99,25 @@ function App() {
   return (
     <>
       {/* 페이지 공통항목  */}
-      <Header
-        title={"지출내역 관리"}
-        leftChild={<Button text={"<"} />}
-        rightChild={<Button text={">"} />}
-      />
-
       {/* <div>
         <Link to={"/"}>홈으로 가기</Link>
       </div> */}
       {/* <button onClick={onClickButton}>지출내역 추가하기</button> */}
       {/* <img src={getIconImage(1)} /> */}
-      {/* <Button
-        text={"버튼"}
-        type={"DEFAULT"}
-        onClick={() => {
-          console.log("일반버튼 동작 확인");
-        }}
-      ></Button>
-      <Button
-        text={"추가"}
-        type={"CREATE"}
-        onClick={() => {
-          console.log("추가버튼 동작 확인");
-        }}
-      ></Button>
-      <Button
-        text={"삭제"}
-        type={"DELETE"}
-        onClick={() => {
-          console.log("삭제버튼 동작 확인");
-        }}
-      ></Button> */}
-      <SpendingStateContext.Provider value={data}>
-        <SpendingDispatchContext.Provider
+
+      <ExpenseStateContext.Provider value={data}>
+        <ExpenseDispatchContext.Provider
           value={{ onCreate, onUpdate, onDelete }}
         >
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/new" element={<New />}></Route>
-            <Route path="/edit" element={<Edit />}></Route>
+            <Route path="/edit/:id" element={<Edit />}></Route>
             <Route path="/detail/:id" element={<Detail />}></Route>
             <Route path="*" element={<NotFound />}></Route>
           </Routes>
-        </SpendingDispatchContext.Provider>
-      </SpendingStateContext.Provider>
+        </ExpenseDispatchContext.Provider>
+      </ExpenseStateContext.Provider>
     </>
   );
 }

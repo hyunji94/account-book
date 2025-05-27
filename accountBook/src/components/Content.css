@@ -1,0 +1,29 @@
+.Content > section {
+  margin-bottom: 40px;
+}
+
+.Content > section > h4 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.Content > section > input {
+  background-color: white;
+  border: solid;
+  border-width: 1px;
+  border-color: gray;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 10px 20px;
+}
+
+.Content .icon_section .icon_list_wrapper {
+  display: flex;
+  justify-content: space-around;
+  gap: 1%;
+}
+
+.Content .button_section {
+  display: flex;
+  justify-content: space-between;
+}

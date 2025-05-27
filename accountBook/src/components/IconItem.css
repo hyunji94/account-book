@@ -1,0 +1,60 @@
+.IconItem {
+  background-color: rgb(236, 236, 236);
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.IconItem .icon_img {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.IconItem .icon_name {
+  white-space: nowrap;
+}
+
+.IconItem_on_1 {
+  color: white;
+  background-color: rgb(100, 201, 100);
+}
+
+.IconItem_on_2 {
+  color: white;
+  background-color: rgb(251, 75, 75);
+}
+
+.IconItem_on_3 {
+  color: white;
+  background-color: orange;
+}
+
+.IconItem_on_4 {
+  color: white;
+  background-color: hotpink;
+}
+
+.IconItem_on_5 {
+  color: white;
+  background-color: forestgreen;
+}
+
+.IconItem_on_6 {
+  color: white;
+  background-color: royalblue;
+}
+
+.IconItem_on_7 {
+  color: white;
+  background-color: slateblue;
+}
+
+.IconItem_on_8 {
+  color: white;
+  background-color: skyblue;
+}
