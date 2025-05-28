@@ -14,7 +14,7 @@ const useExpense = (id) => {
       nav("/", { replace: true });
     }
     return setCurrentItem(currentItem);
-  }, [id, data]);
+  }, [id]);
 
   return currentItem;
 };
