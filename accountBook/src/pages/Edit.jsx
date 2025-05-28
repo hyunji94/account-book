@@ -2,26 +2,15 @@ import { useNavigate, useParams } from "react-router-dom";
 import Button from "../components/Button";
 import Content from "../components/Content";
 import Header from "../components/Header";
-import { ExpenseStateContext, ExpenseDispatchContext } from "../App";
-import { useContext, useEffect, useState } from "react";
+import { ExpenseDispatchContext } from "../App";
+import { useContext } from "react";
+import useExpense from "../hooks/useExpense";
 
 const Edit = () => {
   const params = useParams();
   const nav = useNavigate();
   const { onDelete, onUpdate } = useContext(ExpenseDispatchContext);
-  const data = useContext(ExpenseStateContext);
-  const [currentItem, setCurrentItem] = useState();
-
-  useEffect(() => {
-    const currentItem = data.find(
-      (item) => String(item.id) === String(params.id)
-    );
-    if (!currentItem) {
-      window.alert("존재하지 않는 내역 입니다.");
-      nav("/", { replace: true });
-    }
-    return setCurrentItem(currentItem);
-  }, [params.id, data]);
+  const currentItem = useExpense(params.id);
 
   const onClickDelete = () => {
     if (window.confirm("지출 내역을 삭제하겠습니까?")) {
@@ -38,7 +27,9 @@ const Edit = () => {
         input.storeName,
         input.createDate.getTime(),
         Number(input.amount),
-        input.iconId
+        input.iconId,
+        input.payment,
+        input.memo
       );
     }
     nav("/", { replace: true });

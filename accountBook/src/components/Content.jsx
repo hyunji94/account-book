@@ -3,6 +3,7 @@ import IconItem from "./IconItem";
 import Button from "./Button";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { getStringDate } from "../util/get-string-date";
 
 const iconList = [
   {
@@ -39,27 +40,15 @@ const iconList = [
   },
 ];
 
-const getStringDate = (targetDate) => {
-  let year = targetDate.getFullYear();
-  let month = targetDate.getMonth() + 1;
-  let date = targetDate.getDate();
-
-  if (month < 10) {
-    month = `0${month}`;
-  }
-  if (date < 10) {
-    date = `0${date}`;
-  }
-  return `${year}-${month}-${date}`;
-};
-
-//storeName, createDate, amount, iconId
+//storeName, createDate, amount, iconId, payment,memo
 const Content = ({ initData, onSubmit }) => {
   const [input, setInput] = useState({
     storeName: "",
     createDate: new Date(),
     amount: "",
     iconId: "",
+    payment: "",
+    memo: "",
   });
 
   const nav = useNavigate();
@@ -138,6 +127,23 @@ const Content = ({ initData, onSubmit }) => {
             />
           ))}
         </div>
+      </section>
+      <section className="payment_section">
+        <h4>지불방법</h4>
+        <select name="payment" value={input.payment} onChange={onChangeInput}>
+          <option value={"card"}>카드</option>
+          <option value={"cash"}>현금</option>
+        </select>
+      </section>
+      <section className="memo_section">
+        <h4>메모</h4>
+        <input
+          name="memo"
+          value={input.memo}
+          onChange={onChangeInput}
+          type="text"
+          placeholder="메모를 입력해주세요."
+        />
       </section>
       <section className="button_section">
         <Button onClick={() => nav(-1)} text={"취소"} />

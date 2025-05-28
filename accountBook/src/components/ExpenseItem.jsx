@@ -19,7 +19,7 @@ const ExpenseItem = ({ id, storeName, createDate, amount, iconId }) => {
         <div className="date">{new Date(createDate).toLocaleDateString()}</div>
       </div>
       <div className="amount_section">
-        <div className="amount">{amount}원</div>
+        <div className="amount">{amount.toLocaleString()}원</div>
       </div>
       <div className="button_section">
         <Button onClick={() => nav(`/edit/${id}`)} text={"수정하기"} />

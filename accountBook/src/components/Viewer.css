@@ -1,0 +1,25 @@
+.Viewer {
+  display: flex;
+  flex-direction: column;
+}
+
+.Viewer > section {
+  margin-top: 20px;
+}
+
+.Viewer > section > div > p {
+  font-size: 22px;
+}
+
+.Viewer > section > .amount {
+}
+
+.Viewer .content_section {
+  display: flex;
+  flex-direction: column;
+}
+
+.Viewer .sub_section {
+  display: flex;
+  flex-direction: column;
+}

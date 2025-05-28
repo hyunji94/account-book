@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import ExpenseList from "../components/expenseList";
 import Header from "../components/Header";
 import { ExpenseStateContext } from "../App";
+import Summary from "../components/Summary";
 
 const getMonthlyData = (pivotDate, data) => {
   const beginTime = new Date(
@@ -40,6 +41,7 @@ const Home = () => {
   const onDecreaseMonth = () => {
     setPivotDate(new Date(pivotDate.getFullYear(), pivotDate.getMonth() - 1));
   };
+
   return (
     <div>
       <Header
@@ -47,6 +49,7 @@ const Home = () => {
         leftChild={<Button text={"<"} onClick={onDecreaseMonth} />}
         rightChild={<Button text={">"} onClick={onIncreaseMonth} />}
       />
+      <Summary data={monthlyData} />
       <ExpenseList data={monthlyData} />
     </div>
   );

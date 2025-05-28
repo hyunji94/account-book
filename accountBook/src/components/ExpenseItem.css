@@ -22,6 +22,27 @@
 .ExpenseItem .img_section_1 {
   background-color: rgb(100, 201, 100);
 }
+.ExpenseItem .img_section_2 {
+  background-color: rgb(251, 75, 75);
+}
+.ExpenseItem .img_section_3 {
+  background-color: orange;
+}
+.ExpenseItem .img_section_4 {
+  background-color: hotpink;
+}
+.ExpenseItem .img_section_5 {
+  background-color: forestgreen;
+}
+.ExpenseItem .img_section_6 {
+  background-color: royalblue;
+}
+.ExpenseItem .img_section_7 {
+  background-color: slateblue;
+}
+.ExpenseItem .img_section_8 {
+  background-color: skyblue;
+}
 
 .ExpenseItem .info_section {
   flex: 1;

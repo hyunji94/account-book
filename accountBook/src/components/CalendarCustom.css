@@ -1,0 +1,15 @@
+/* CalendarCustom.css */
+.react-calendar {
+  border: none;
+  font-family: "Arial";
+}
+
+.react-calendar__tile {
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.react-calendar__tile--active {
+  background: #007bff;
+  color: white;
+}

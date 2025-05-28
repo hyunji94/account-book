@@ -21,6 +21,8 @@ const mockData = [
     createDate: new Date("2025-05-22").getTime(),
     amount: 3000,
     iconId: 1,
+    payment: "card",
+    memo: "커피구매",
   },
   {
     id: 2,
@@ -28,13 +30,17 @@ const mockData = [
     createDate: new Date("2025-05-10").getTime(),
     amount: 10000,
     iconId: 3,
+    payment: "card",
+    memo: "점심값",
   },
   {
-    id: 4,
+    id: 3,
     storeName: "헤어살롱",
     createDate: new Date("2025-04-05").getTime(),
     amount: 50000,
-    iconId: 3,
+    iconId: 4,
+    payment: "cash",
+    memo: "네이버페이 구매",
   },
 ];
 function reducer(state, action) {
@@ -63,7 +69,7 @@ function App() {
   const idRef = useRef(3);
 
   //신규
-  const onCreate = (storeName, createDate, amount, iconId) => {
+  const onCreate = (storeName, createDate, amount, iconId, payment, memo) => {
     dsipatch({
       type: "CREATE",
       data: {
@@ -72,11 +78,21 @@ function App() {
         createDate,
         amount,
         iconId,
+        payment,
+        memo,
       },
     });
   };
   //수정
-  const onUpdate = (id, storeName, createDate, amount, iconId) => {
+  const onUpdate = (
+    id,
+    storeName,
+    createDate,
+    amount,
+    iconId,
+    payment,
+    memo
+  ) => {
     dsipatch({
       type: "UPDATE",
       data: {
@@ -85,6 +101,8 @@ function App() {
         createDate,
         amount,
         iconId,
+        payment,
+        memo,
       },
     });
   };

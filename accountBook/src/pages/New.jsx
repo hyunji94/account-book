@@ -14,7 +14,9 @@ const New = () => {
       input.storeName,
       input.createDate.getTime(),
       Number(input.amount),
-      input.iconId
+      input.iconId,
+      input.payment,
+      input.memo
     );
     nav("/", { replace: true }); //뒤로가기 방지까지 추가
   };

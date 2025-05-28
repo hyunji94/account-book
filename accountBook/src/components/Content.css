@@ -23,6 +23,12 @@
   gap: 1%;
 }
 
+.Content .payment_section > select {
+  font-size: 20px;
+  width: 88px;
+  height: 48px;
+}
+
 .Content .button_section {
   display: flex;
   justify-content: space-between;

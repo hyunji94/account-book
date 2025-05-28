@@ -1,0 +1,20 @@
+.Summary {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0px;
+  border-bottom: 1px solid rgb(226, 226, 226);
+}
+
+.Summary > div {
+  display: flex;
+  padding: 8px 0px;
+}
+
+.Summary .summary_title {
+  font-size: 24px;
+}
+
+.Summary .summary_totalAmount {
+  font-weight: bold;
+  font-size: 40px;
+}

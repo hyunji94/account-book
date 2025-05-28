@@ -44,10 +44,7 @@ const ExpenseList = ({ data }) => {
           type={"CREATE"}
         />
       </div>
-      <div className="summary">
-        <div>총 이용금액</div>
-        <div className="totalAmount"></div>
-      </div>
+
       <div className="list_wrapper">
         {sortedData.map((item) => (
           <ExpenseItem key={item.id} {...item} />
