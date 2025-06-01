@@ -4,10 +4,12 @@ import Header from "../components/Header";
 import Viewer from "../components/Viewer";
 import useExpense from "../hooks/useExpense";
 import { getStringDate } from "../util/get-string-date";
+import usePageTitle from "../hooks/usePageTitle";
 
 const Detail = () => {
   const params = useParams();
   const nav = useNavigate();
+  usePageTitle(`지출 관리 > ${params.id}번 내역 상세보기`);
 
   const currentItem = useExpense(params.id);
   if (!currentItem) {

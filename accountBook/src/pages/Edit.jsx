@@ -5,12 +5,14 @@ import Header from "../components/Header";
 import { ExpenseDispatchContext } from "../App";
 import { useContext } from "react";
 import useExpense from "../hooks/useExpense";
+import usePageTitle from "../hooks/usePageTitle";
 
 const Edit = () => {
   const params = useParams();
   const nav = useNavigate();
   const { onDelete, onUpdate } = useContext(ExpenseDispatchContext);
   const currentItem = useExpense(params.id);
+  usePageTitle(`지출 관리 > ${params.id}번 내역 수정`);
 
   const onClickDelete = () => {
     if (window.confirm("지출 내역을 삭제하겠습니까?")) {

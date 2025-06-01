@@ -18,3 +18,14 @@
   font-weight: bold;
   font-size: 40px;
 }
+
+.calendar-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.calendar-wrapper.show {
+  max-height: 500px; /* 적당히 큰 값 */
+  opacity: 1;
+}

@@ -1,7 +1,8 @@
 /* CalendarCustom.css */
 .react-calendar {
+  width: 100%;
   border: none;
-  font-family: "Arial";
+  font-family: "NanumSquareNeo";
 }
 
 .react-calendar__tile {
@@ -12,4 +13,13 @@
 .react-calendar__tile--active {
   background: #007bff;
   color: white;
+}
+
+.calendar-amount-list {
+  margin-top: 4px;
+}
+.calendar-amount {
+  font-size: 0.75rem;
+  color: #1976d2;
+  font-weight: bold;
 }

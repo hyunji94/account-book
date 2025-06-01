@@ -25,28 +25,29 @@ const Viewer = ({ storeName, createDate, amount, payment, memo }) => {
     <div className="Viewer">
       <section className="content_section">
         <div>
-          <h2>{storeName}</h2>
+          <h2>이용처</h2>
+          <p>{storeName}</p>
         </div>
         <div className="amount">
-          <p>이용금액</p>
+          <h2>이용금액</h2>
           <p>{amount.toLocaleString()}원</p>
         </div>
         <div className="date">
-          <p>거래일</p>
+          <h2>이용일자</h2>
           <p>{getStringtime(new Date(createDate))}</p>
         </div>
         <div>
-          <p>지불방법</p>
+          <h2>지불방법</h2>
           <p>{payment}</p>
         </div>
         <div>
-          <p>메모</p>
-          <p>{memo}</p>
+          <h2>메모</h2>
+          <p>{memo.length != 0 ? memo : "-"}</p>
         </div>
       </section>
       <section className="sub_section">
         <div className="list_wrapper">
-          <p>최근 3개월간 이용처 거래내역</p>
+          <h2>최근 3개월간 이용처 거래내역</h2>
           {filteredList.length > 0 ? (
             filteredList.map((item) => <ExpenseItem key={item.id} {...item} />)
           ) : (

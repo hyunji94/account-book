@@ -5,6 +5,7 @@ import ExpenseList from "../components/expenseList";
 import Header from "../components/Header";
 import { ExpenseStateContext } from "../App";
 import Summary from "../components/Summary";
+import usePageTitle from "../hooks/usePageTitle";
 
 const getMonthlyData = (pivotDate, data) => {
   const beginTime = new Date(
@@ -32,6 +33,8 @@ const Home = () => {
   const data = useContext(ExpenseStateContext);
 
   const [pivotDate, setPivotDate] = useState(new Date());
+
+  usePageTitle("지출 관리");
 
   const monthlyData = getMonthlyData(pivotDate, data);
 

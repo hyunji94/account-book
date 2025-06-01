@@ -17,12 +17,17 @@ const Summary = ({ data }) => {
   return (
     <div className="Summary">
       <div className="summary_title">총 이용금액</div>
+
       <div className="summary_totalAmount">
         {totalAmount.toLocaleString()}원
       </div>
-      <Button onClick={toggleCalendar} text={"달력으로 보기"} />
-      {/* 조건부 렌더링으로 달력 표시 */}
-      {showCalendar && <CalendarCustom data={data} />}
+
+      <div className="summary_calender">
+        <Button onClick={toggleCalendar} text={"달력"} />
+        <div className={`calendar-wrapper ${showCalendar ? "show" : "hide"}`}>
+          <CalendarCustom data={data} />
+        </div>
+      </div>
     </div>
   );
 };

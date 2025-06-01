@@ -1,12 +1,62 @@
-# React + Vite
+# 💳 소비 기록 캘린더 앱
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+사용자가 일자별로 소비 내역을 기록하고, 월별 캘린더를 통해 소비 금액을 시각적으로 확인할 수 있는 React 기반 웹 애플리케이션입니다.
 
-Currently, two official plugins are available:
+## 🔍 주요 기능
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### ✅ 소비 내역 관리
 
-## Expanding the ESLint configuration
+- **사용처 / 금액 / 일자 / 카테고리 / 결제수단 / 메모** 정보로 소비내역 구성
+- 소비 내역을 `생성`,`수정`,`삭제`,`상세보기` 기능 제공
+- 다양한 소비 카테고리를 아이콘으로 제공하여, 클릭시 상태 반영
+- 홈 화면에 해당 월을 지출금액 `합계`를 표시
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 📆 캘린더 기능
+
+- `react-calendar` 라이브러리 사용
+- 각 일자의 지출 금액 합계를 `캘린더 셀`에 표시
+- 월별 데이터 필터링 후 전달하여 렌더링
+- 달력 토글 버튼 → Summary 컴포넌트 내 포함
+
+## 데이터 저장 방식
+
+- 브라우저 `localStorage`를 활용하여
+- 초기 로드 시 데이터 복원
+- 추가/수정/삭제 시 실시간 저장
+
+## ⚙️ 기술 스택
+
+- **React**
+- **React Router**
+- **React Calendar**
+- **moment.js**
+
+## 📁 프로젝트 구조
+
+src/
+├── App.jsx
+├── pages/
+│ ├── Home.jsx // 메인 - 지출 목록 및 달력 요약
+│ ├── New.jsx // 지출 항목 추가
+│ ├── Edit.jsx // 지출 항목 수정
+│ ├── Detail.jsx // 지출 항목 상세
+│ └── NotFound.jsx // 404 페이지
+├── components/
+│ ├── Header.jsx
+│ ├── Button.jsx
+│ ├── Summary.jsx
+│ ├── CalendarCustom.jsx
+│ ├── ExpenseList.jsx
+│ ├── ExpenseItem.jsx
+│ ├── Content.jsx
+│ ├── IconItem.jsx
+│ ├── Viewer.jsx
+├── hooks/
+│ └── useExpense.js  
+│ └── usePageTitle.js  
+├── util/
+│ └── get-icon-image.js
+│ └── get-string-date.js
+│ └── get-string-time.js
+├── assets/
+│ └── (아이콘 이미지 등)

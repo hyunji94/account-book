@@ -47,7 +47,7 @@ const Content = ({ initData, onSubmit }) => {
     createDate: new Date(),
     amount: "",
     iconId: "",
-    payment: "",
+    payment: "card",
     memo: "",
   });
 
@@ -58,6 +58,7 @@ const Content = ({ initData, onSubmit }) => {
       setInput({
         ...initData,
         createDate: new Date(Number(initData.createDate)),
+        payment: initData.payment || "card",
       });
     }
   }, [initData]);

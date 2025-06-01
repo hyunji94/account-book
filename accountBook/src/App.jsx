@@ -84,11 +84,13 @@ function App() {
   useEffect(() => {
     const storedData = localStorage.getItem("expense");
     if (!storedData) {
+      idRef.current = 1;
       setIsLoding(false);
       return;
     }
     const parsedData = JSON.parse(storedData);
     if (!Array.isArray(parsedData)) {
+      idRef.current = 1;
       setIsLoding(false);
       return;
     }

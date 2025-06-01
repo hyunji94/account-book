@@ -2,13 +2,15 @@ import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import Content from "../components/Content";
 import Header from "../components/Header";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ExpenseDispatchContext } from "../App";
+import usePageTitle from "../hooks/usePageTitle";
 
 const New = () => {
   const { onCreate } = useContext(ExpenseDispatchContext);
-
   const nav = useNavigate();
+  usePageTitle("지출 관리 > 신규 추가");
+
   const onSubmit = (input) => {
     onCreate(
       input.storeName,

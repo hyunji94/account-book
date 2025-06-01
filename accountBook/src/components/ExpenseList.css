@@ -2,6 +2,7 @@
   margin: 20px 0px;
   display: flex;
   gap: 10px;
+  justify-content: space-between;
 }
 
 .ExpenseList .menu_bar select {
@@ -15,5 +16,5 @@
 }
 
 .ExpenseList .menu_bar button {
-  flex: 1;
+  flex: 0.85;
 }
